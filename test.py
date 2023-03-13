@@ -51,7 +51,7 @@ class Paint(Frame):
 
 
         color_lab = Label(self,text="Color: ")
-        color_lab.grid(row=0,column=0,padx=6)
+        color_lab.grid(row=0,column=1,padx=6)
 
         red_btn = Button(self,text="red",width=10,command=lambda: self.set_color("red"))
         red_btn.grid(row=0,column=2)
@@ -60,17 +60,17 @@ class Paint(Frame):
         green_btn = Button(self,text="green",width=10,command=lambda: self.set_color("green"))
         green_btn.grid(row=0,column=4)
         blue_btn = Button(self,text="blue",width=10,command=lambda: self.set_color("blue"))
-        blue_btn.grid(row=0,column=4)
+        blue_btn.grid(row=0,column=5)
         black_btn = Button(self,text="black",width=10,command=lambda: self.set_color("black"))
-        black_btn.grid(row=0,column=5)
+        black_btn.grid(row=0,column=6)
         eraser_btn = Button(self,text="eraser",width=10,command=lambda: self.set_color("white"))
-        eraser_btn.grid(row=0,column=6)
+        eraser_btn.grid(row=0,column=7)
         clear_btn = Button(self,text="clear",width=10,command=lambda: self.canv.delete("all"))
-        clear_btn.grid(row=0,column=7)
+        clear_btn.grid(row=0,column=8)
 
 
         size_lab = Label(self, text="Brush size: ")
-        size_lab.grid(row=1, column=0, padx=6)
+        size_lab.grid(row=1, column=1, padx=6)
         one_btn = Button(self, text="1", width=10, command=lambda: self.set_brush_size(1))
         one_btn.grid(row=1, column=2)
         two_btn = Button(self, text="2", width=10, command=lambda: self.set_brush_size(2))
