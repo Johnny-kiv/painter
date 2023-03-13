@@ -41,7 +41,7 @@ class Paint(Frame):
         self.pack(fill=BOTH,expand=1)
         self.columnconfigure(6,weight=1)
         self.rowconfigure(2,weight=1)
-        self.canv = Canvas(self,bg="white")
+        self.canv = Canvas(self,bg="white",width=640,height=480)
         self.canv.grid(row=2,column=0,columnspan=7,padx = 5,pady=5,sticky=E+W+S+N)
 
         self.canv.bind("<B1-Motion>",self.draw)
