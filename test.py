@@ -1,4 +1,4 @@
-"""from tkinter import *
+from tkinter import *
 
 class Paint(Frame):
     def __init__(self,parent):
@@ -88,9 +88,4 @@ class Paint(Frame):
 root = Tk()
 root.geometry("2000x1000+300+300")
 app = Paint(root)
-root.mainloop()"""
-a = 7
-b=5
-c=2
-d=(a*(b+c)/10)-(a/3)*c
-print(d)
+root.mainloop()
