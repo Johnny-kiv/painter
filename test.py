@@ -8,9 +8,9 @@ class Paint(Frame):
         self.color = "red"
         self.brush_color = self.color
         self.setUI()
-"""    def get_rgb(self,rgb):
-        r, g, b = rgb
-        return f'#{r:02x}{g:02x}{b:02x}'"""
+    """    def get_rgb(self,rgb):
+            r, g, b = rgb
+            return f'#{r:02x}{g:02x}{b:02x}"""
     def draw(self,event):
         self.canv.create_rectangle(event.x - self.brush_size,event.y - self.brush_size,event.x + self.brush_size,event.y + self.brush_size,fill=self.color,outline=self.brush_color)
     #function set color
