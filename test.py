@@ -8,32 +8,16 @@ class Paint(Frame):
         self.color = "red"
         self.brush_color = self.color
         self.setUI()
-        inp = open("descriptor.txt")
-        lines = inp.read().split("\n")
-        y = 0
-
-        for line in lines:
-            y += 1
-            pixels = line.split("|")
-            pixels.pop(-1)
-            x = 0
-            for pixel in pixels:
-                p = pixel.split(" ")
-                r = int(p[0])  # red
-                g = int(p[1])  # green
-                b = int(p[2])  # blue
-                rgb = r, g, b
-                self.canv.create_line(x, y, x + 1, y, fill=self.get_rgb(rgb))
-                x += 1
-
-    def get_rgb(self,rgb):
+"""    def get_rgb(self,rgb):
         r, g, b = rgb
-        return f'#{r:02x}{g:02x}{b:02x}'
+        return f'#{r:02x}{g:02x}{b:02x}'"""
     def draw(self,event):
         self.canv.create_rectangle(event.x - self.brush_size,event.y - self.brush_size,event.x + self.brush_size,event.y + self.brush_size,fill=self.color,outline=self.brush_color)
+    #function set color
     def set_color(self,new_color):
         self.color=new_color
         self.brush_color=self.color
+    #function set brush size
     def set_brush_size(self,new_color):
         self.brush_size=new_color
     def setUI(self):
@@ -43,16 +27,11 @@ class Paint(Frame):
         self.rowconfigure(2,weight=1)
         self.canv = Canvas(self,bg="white",width=640,height=480)
         self.canv.grid(row=2,column=0,columnspan=7,padx = 5,pady=5,sticky=E+W+S+N)
-
+        #draw
         self.canv.bind("<B1-Motion>",self.draw)
-
-        # Create canvas
-
-
-
+        #color menu
         color_lab = Label(self,text="Color: ")
         color_lab.grid(row=0,column=1,padx=6)
-
         red_btn = Button(self,text="red",width=10,command=lambda: self.set_color("red"))
         red_btn.grid(row=0,column=2)
         yellow_btn = Button(self,text="yellow",width=10,command=lambda: self.set_color("yellow"))
@@ -67,8 +46,7 @@ class Paint(Frame):
         eraser_btn.grid(row=0,column=7)
         clear_btn = Button(self,text="clear",width=10,command=lambda: self.canv.delete("all"))
         clear_btn.grid(row=0,column=8)
-
-
+        #brush size menu
         size_lab = Label(self, text="Brush size: ")
         size_lab.grid(row=1, column=1, padx=6)
         one_btn = Button(self, text="1", width=10, command=lambda: self.set_brush_size(1))
