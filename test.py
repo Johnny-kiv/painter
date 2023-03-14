@@ -8,9 +8,9 @@ class Paint(Frame):
         self.color = "red"
         self.brush_color = self.color
         self.setUI()
-    """    def get_rgb(self,rgb):
-            r, g, b = rgb
-            return f'#{r:02x}{g:02x}{b:02x}"""
+        """    def get_rgb(self,rgb):
+                r, g, b = rgb
+                return f'#{r:02x}{g:02x}{b:02x}"""
     def draw(self,event):
         self.canv.create_rectangle(event.x - self.brush_size,event.y - self.brush_size,event.x + self.brush_size,event.y + self.brush_size,fill=self.color,outline=self.brush_color)
     #function set color
@@ -27,8 +27,10 @@ class Paint(Frame):
         self.rowconfigure(2,weight=1)
         self.canv = Canvas(self,bg="white",width=640,height=480)
         self.canv.grid(row=2,column=0,columnspan=7,padx = 5,pady=5,sticky=E+W+S+N)
+
         #draw
         self.canv.bind("<B1-Motion>",self.draw)
+
         #color menu
         color_lab = Label(self,text="Color: ")
         color_lab.grid(row=0,column=1,padx=6)
@@ -46,6 +48,7 @@ class Paint(Frame):
         eraser_btn.grid(row=0,column=7)
         clear_btn = Button(self,text="clear",width=10,command=lambda: self.canv.delete("all"))
         clear_btn.grid(row=0,column=8)
+
         #brush size menu
         size_lab = Label(self, text="Brush size: ")
         size_lab.grid(row=1, column=1, padx=6)
@@ -63,6 +66,7 @@ class Paint(Frame):
         twenty_btn.grid(row=1, column=6)
         fifty_btn = Button(self, text="50x", width=10, command=lambda: self.set_brush_size(50))
         fifty_btn.grid(row=1, column=7)
+
 root = Tk()
 root.geometry("2000x1000+300+300")
 app = Paint(root)
